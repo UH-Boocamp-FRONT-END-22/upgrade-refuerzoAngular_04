@@ -1,0 +1,45 @@
+<header>
+  <h1>Contact Us</h1>
+  <h3>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto molestias
+    tempore sequi, ad aperiam reprehenderit nostrum distinctio laborum ducimus
+    aliquid? Itaque, dolore cumque explicabo minus amet facilis accusantium
+    cupiditate quidem?
+  </h3>
+</header>
+
+<body>
+  <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="formulario">
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" />
+
+      <div
+        *ngIf="
+          !contactForm.get('name')?.valid &&
+          (contactForm.get('name')?.dirty || submitted)
+        "
+      >
+        Name tiene que tener un mínimo de 2 caractéres.
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" />
+    </div>
+
+    <div class="field">
+      <label for="message">Message</label>
+      <input type="text" id="message" formControlName="message" />
+    </div>
+
+    <button type="submit" [disabled]="!contactForm.valid">Button</button>
+  </form>
+</body>
+
+<footer>
+  <hr />
+  <h1>ESTO ES UN FOOTER</h1>
+  <h3>HECHO POR DANI MARTÍNEZ</h3>
+</footer>
